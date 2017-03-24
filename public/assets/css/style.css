@@ -1,0 +1,131 @@
+/*-----------------------------------------------------------------------------------
+
+This Template made for Mahmud's Personal website
+
+-----------------------------------------------------------------------------------
+
+
+/*----------------------------------------*/
+/*  1.  Theme default CSS
+/*----------------------------------------*/
+html, body {height: 100%;}
+.floatleft {float:left}
+.floatright {float:right}
+.alignleft {float:left;margin-right:15px;margin-bottom: 15px}
+.alignright {float:right;margin-left:15px;margin-bottom: 15px}
+.aligncenter {display:block;margin:0 auto 15px}
+a:focus {outline:0px solid}
+img {max-width:100%;height:auto}
+.fix {overflow:hidden}
+p {margin:0 0 15px;}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 10px;
+}
+a {transition: all 0.3s ease 0s;text-decoration:none;}
+a:hover {
+  color: #ec4445;
+  text-decoration: none;
+}
+a:active, a:hover {
+  outline: 0 none;
+}
+ul{
+list-style: outside none none;
+margin: 0;
+padding: 0
+}
+.clear{clear:both}
+body {
+    background: #fff no-repeat scroll 0 0;
+    color: #6d6d6d;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    overflow-x: hidden;
+    position: relative;
+}
+.home{
+    display:table;
+    width:100%;
+    height:100%;
+}
+.home-area{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.with-background{
+
+}
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.home-section{
+    height:100%;
+    color:#fff;
+}
+
+.home-section:before{
+    background:#000;
+    height:100%;
+    width:100%;
+    z-index:-1;
+    opacity:0.70;
+    content:"";
+    position:absolute;
+    top:0px;
+    left:0px;
+
+}
+
+
+
+/*.home-content {*/
+    /*display: table;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+/*.home-content-wrap {*/
+    /*display:table-cell;*/
+    /*vertical-align: middle;*/
+/*}*/
+/*.home-content-area {*/
+    /*margin-top: 60px;*/
+    /*position: absolute;*/
+    /*top: 30%;*/
+    /*left: 0;*/
+    /*right: 0;*/
+/*}*/
+
+/*.home-section::after{*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*content: "";*/
+    /*z-index: -1;*/
+    /*background: #000;*/
+    /*opacity: .75;*/
+/*}*/
+
+/*.home-section{*/
+    /*position: relative;*/
+    /*color: #fff;*/
+    /*z-index: 1;*/
+    /*height: 100%;*/
+/*}*/
