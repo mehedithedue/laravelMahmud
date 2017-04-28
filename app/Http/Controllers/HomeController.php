@@ -10,7 +10,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('mahmud.master');
+        return view('mahmud.index');
     }
 
     /**

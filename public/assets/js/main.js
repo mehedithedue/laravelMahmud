@@ -4,28 +4,28 @@
     /*----------------------------
      jQuery MeanMenu
      ------------------------------ */
-    jQuery('nav#dropdown').meanmenu();
+//    jQuery('nav#dropdown').meanmenu();
 
     /*----------------------------
      wow js active
      ------------------------------ */
-    new WOW().init();
+//    new WOW().init();
 
 
     /*----------------------------
      price-slider active
      ------------------------------ */
-    $("#slider-range").slider({
-        range: true,
-        min: 40,
-        max: 600,
-        values: [60, 570],
-        slide: function (event, ui) {
-            $("#amount").val("�" + ui.values[0] + " - �" + ui.values[1]);
-        }
-    });
-    $("#amount").val("�" + $("#slider-range").slider("values", 0) +
-        " - �" + $("#slider-range").slider("values", 1));
+//    $("#slider-range").slider({
+//        range: true,
+//        min: 40,
+//        max: 600,
+//        values: [60, 570],
+//        slide: function (event, ui) {
+//            $("#amount").val("�" + ui.values[0] + " - �" + ui.values[1]);
+//        }
+//    });
+//    $("#amount").val("�" + $("#slider-range").slider("values", 0) +
+//        " - �" + $("#slider-range").slider("values", 1));
 
     /*--------------------------
      scrollUp
@@ -59,9 +59,9 @@
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top - 79
-                }, 1000);
+                $('html,body').animate(
+                        { scrollTop: target.offset().top -50}, 1000
+                        );
                 return false;
             }
         }
@@ -73,6 +73,7 @@
 
     //Image Background
     $(".with-background").backstretch("assets/img/bg.jpg");
+    
 
 
 })(jQuery);
