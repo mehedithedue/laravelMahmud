@@ -6,15 +6,15 @@
         <title>Mahmud's</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         @include ('layout.link ')
 
         <style>
-            .x{height:500px; padding-top:25px;}
+            .x{height:500px; padding-top:50px;}
         </style>
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
-        <div class="home-section with-background">
+        <div class="home-section with-background" style="z-index: 1;">
             <div class="header-section">
                 
                 @include ( 'layout.nav' )
@@ -31,22 +31,26 @@
 
         <div class="container">
             
-            <div id="about" class="row x">
+            <div id="about">
                 
                 @yield ( 'about' )
                 
             </div>
-            <div id="service" class="row x">
-
+		</div>
+		<div class="container-fluid">
+            <div id="service">
+				<div class="container">
                 @yield ( 'service' )
-
+				</div>
             </div>
-            <div id="portfolio" class="row x">
+		</div>
+		<div class="container">
+            <div id="portfolio">
 
                 @yield ( 'portfolio' )
 
             </div>
-            <div id="contact" class="row x">
+            <div id="contact">
 
                 @yield ( 'contact' )
 
