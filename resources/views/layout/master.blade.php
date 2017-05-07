@@ -36,11 +36,23 @@
                 @yield ( 'about' )
                 
             </div>
+<<<<<<< HEAD
             <div id="service">
 
+=======
+		</div>
+		<div class="container-fluid">
+            <div id="service">
+				<div class="container">
+>>>>>>> 202101038176a42cae9ffb367d6ec1b18703d4a9
                 @yield ( 'service' )
-
+				</div>
             </div>
+<<<<<<< HEAD
+=======
+		</div>
+		<div class="container">
+>>>>>>> 202101038176a42cae9ffb367d6ec1b18703d4a9
             <div id="portfolio">
 
                 @yield ( 'portfolio' )
