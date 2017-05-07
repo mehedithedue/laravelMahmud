@@ -1,40 +1,69 @@
 /*-----------------------------------------------------------------------------------
-
 This Template made for Mahmud's Personal website
+-----------------------------------------------------------------------------------*/
 
------------------------------------------------------------------------------------
-
-
-/*----------------------------------------*/
-/*  1.  Theme default CSS
-/*----------------------------------------*/
-html, body {height: 100%;}
-.floatleft {float:left}
-.floatright {float:right}
-.alignleft {float:left;margin-right:15px;margin-bottom: 15px}
-.alignright {float:right;margin-left:15px;margin-bottom: 15px}
-.aligncenter {display:block;margin:0 auto 15px}
-a:focus {outline:0px solid}
-img {max-width:100%;height:auto}
-.fix {overflow:hidden}
-p {margin:0 0 15px;}
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 10px;
+html,
+body {
+    height: 100%;
+    font-family: sans-serif;
 }
-a {transition: all 0.3s ease 0s;text-decoration:none;}
+.floatleft {
+    float: left
+}
+.floatright {
+    float: right
+}
+.alignleft {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px
+}
+.alignright {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 15px
+}
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px
+}
+a:focus {
+    outline: 0px solid
+}
+img {
+    max-width: 100%;
+    height: auto
+}
+.fix {
+    overflow: hidden
+}
+p {
+    font-family: "Oxygen",sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 23px;
+    margin: 0 0 15px;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0 0 10px;
+}
+a {
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
 a:hover {
-  color: #ec4445;
-  text-decoration: none;
+    text-decoration: none;
 }
-a:active, a:hover {
-  outline: 0 none;
+a:active,a:hover {
+    outline: 0 none;
 }
-ul{
-list-style: outside none none;
-margin: 0;
-padding: 0
+ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0
 }
-.clear{clear:both}
+.clear {
+    clear: both
+}
 body {
     background: #fff no-repeat scroll 0 0;
     color: #6d6d6d;
@@ -46,86 +75,160 @@ body {
     overflow-x: hidden;
     position: relative;
 }
-.home{
-    display:table;
-    width:100%;
-    height:100%;
+.home {
+    display: table;
+    width: 100%;
+    height: 100%;
 }
-.home-area{
+.home-area {
     display: table-cell;
     vertical-align: middle;
 }
-
-.with-background{
-
-}
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-.browserupgrade {
+.with-background {} .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
 }
-
-.home-section{
-    height:100%;
-    color:#fff;
+.home-section {
+    height: 100%;
+    color: #fff;
+}
+.home-section:before {
+    background: #000;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.70;
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.navbar-default {
+    transition: all 0.3s ease 0s;
+}
+.navbar {
+    padding: 15px 0;
+}
+.navbar-nav > li > a {
+    color: #fff;
+    font-family: helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out 0s;
+    text-transform: uppercase;
+}
+.nav > li > a:hover,.nav > li > a:focus {
+    color: #8fd134;
+    text-decoration: none;
+    background: none;
+}
+.navbar-brand {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #ced123;
+}
+.navbar-brand:hover {
+    color: #afb21c;
+}
+.navbar-default .navbar-nav > .active > a,.navbar-default .navbar-nav > .active > a:hover,.navbar-default .navbar-nav > .active > a:focus {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #8fd134;
+    text-decoration: none;
+}
+nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li {
+    background: rgba(255, 255, 255, 0.7) none repeat scroll 0 0;
+    border-bottom: 1px solid #ddd;
+}
+nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a {
+    color: #353535;
+}
+nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a:hover,nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a:focus {
+    color: #4c8e00;
+}
+.menu-item .navbar-toggle {
+    border-color: #ddd;
+    background-color: #fff;
+}
+.menu-item .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.carousel-indicators {
+    bottom: 0;
+}
+.carousel-inner {
+    height: 350px;
+}
+.carousel-control.left,.carousel-control.right {
+    background: none !important;
+}
+#about {
+    padding-top: 70px;
 }
 
-.home-section:before{
-    background:#000;
-    height:100%;
-    width:100%;
-    z-index:-1;
-    opacity:0.70;
-    content:"";
-    position:absolute;
-    top:0px;
-    left:0px;
+#about h3{
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.accordion-group {
+    background-color: #edeef0;
+    margin-bottom: 10px;
+}
+
+.accordion-group a.accordion-header {
+    color: #8e9095;
+    display: block;
+    font-size: 16px;
+    padding: 7px 18px;
+    text-transform: uppercase;
+    text-decoration: none;
 
 }
 
+.accordion-group .accordion-body {
+    padding: 20px 20px 7px;
+}
 
+.accordion-body p {
+    line-height: 20px;
+}
 
-/*.home-content {*/
-    /*display: table;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-/*}*/
-/*.home-content-wrap {*/
-    /*display:table-cell;*/
-    /*vertical-align: middle;*/
-/*}*/
-/*.home-content-area {*/
-    /*margin-top: 60px;*/
-    /*position: absolute;*/
-    /*top: 30%;*/
-    /*left: 0;*/
-    /*right: 0;*/
-/*}*/
+.accordion-group a.accordion-header:hover {
+    background-color: #76d898;
+    color: black;
+    text-decoration: none;
+}
 
-/*.home-section::after{*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*content: "";*/
-    /*z-index: -1;*/
-    /*background: #000;*/
-    /*opacity: .75;*/
-/*}*/
+label {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  max-width: 100%;
+}
 
-/*.home-section{*/
-    /*position: relative;*/
-    /*color: #fff;*/
-    /*z-index: 1;*/
-    /*height: 100%;*/
-/*}*/
+.progress-bar-block .value {
+  float: right;
+}   
+
+.progress {
+  box-shadow: none;
+  height: 12px;
+}
+
+.progress-bar {
+  background-color: #76d898;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+  color: #76d898;
+  float: left;
+  font-size: 12px;
+  height: 100%;
+  line-height: 20px;
+  text-align: center;
+  transition: width 0.6s ease 0s;
+  width: 0;
+}

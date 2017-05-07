@@ -44,9 +44,11 @@
     $(window).on('scroll', function () {
         if ($(this).scrollTop() > 50) {
             $('.before').addClass("navbar-default");
+            $('.before').removeClass("menu-item");
         }
         else {
             $('.before').removeClass("navbar-default");
+            $('.before').addClass("menu-item");
         }
     });
 
