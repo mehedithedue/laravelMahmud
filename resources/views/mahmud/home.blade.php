@@ -1,82 +1,48 @@
 <div class="container">
     <div class="row">
-        <!-- Carousel -->
-        <div id="home_text_carousel" class="carousel slide hidden-xs hidden-sm" data-ride="carousel">
-            <div class="row">
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <!-- Static Header -->
-                        <div class="header-text">
-                            <div class="col-md-12 text-center">
-                                <h2>
-                                    <span>Welcome to <strong>Mahmud's World</strong></span>
-                                </h2>
-                                <br>
-                                <h3>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                                </h3>
-                                <br>
-                            </div>
-                        </div><!-- /header-text -->
-                    </div>
-                    <div class="item">
-                        <!-- Static Header -->
-                        <div class="header-text">
-                            <div class="col-md-12 text-center">
-                                <h3>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                                </h3>
-                                <br>
-                                <h3>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                                </h3>
-                                <br>
-                            </div>
-                        </div><!-- /header-text -->
-                    </div>
-                    <div class="item">
-                        <!-- Static Header -->
-                        <div class="header-text">
-                            <div class="col-md-12 text-center">
-                                <h3>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                                </h3>
-                                <br>
-                                <p>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit . Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                                </p>
-                                <br>
-                            </div>
-                        </div><!-- /header-text -->
-                    </div>
-                </div>
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="text-center">
+                <h1><span id="typed"></span></h1>
             </div>
-            <!-- Indicators -->
-            <div class="row">
-                <ol class="carousel-indicators">
-                    <li data-target="#home_text_carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#home_text_carousel" data-slide-to="1"></li>
-                    <li data-target="#home_text_carousel" data-slide-to="2"></li>
-                </ol>
+        </div>
+
+
+        <div id="home_content" style="display: none;">
+            <p>Hi, I am Mahmud .</p>
+            <p>Skilled in 3D architectural rendering</p>
+            <p>Also Architectural Animation</p>
+            <p>And Architectural Visualization</p>
+            <p>Please Explore the site !</p>
+
+        </div>
+
+        <div class="row">
+            <div class="next-container">
+                <a href="#" class="next-step-arrow">
+                    <div class="circle">
+                    </div>
+                    <div class="arrow over">
+                    </div>
+                    <div class="arrow out">
+                    </div>
+                </a>
             </div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#home_text_carousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#home_text_carousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-        </div><!-- /carousel -->
-        <div class="col-md-12 text-center hidden-lg hidden-md">
-            <h2>
-                <span>Welcome to <strong>Mahmud's World</strong></span>
-            </h2>
-            <br>
-            <h3>
-                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-            </h3>
-            <br>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Typed.new("#typed", {
+            stringsElement: document.getElementById('home_content'),
+            typeSpeed: 100,
+            backDelay: 500,
+            loop: false,
+            contentType: 'html', // or text
+            // defaults to null for infinite loop
+            loopCount: null
+        });
+
+    });
+
+</script>

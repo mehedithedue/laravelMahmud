@@ -87,6 +87,15 @@ body {
     display: table-cell;
     vertical-align: middle;
 }
+
+#home h1{
+    color: #fff;
+    font-family: "Lato",sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    text-shadow: 4px 4px 3px #000;
+    text-transform: uppercase;
+}
 .with-background {} .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -438,4 +447,55 @@ label {
     margin-bottom: 5px;
     margin-top: 0;
     transition: all 0.3s ease-in-out 0s;
+}
+
+/******************* For Type.js *********************/
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+.typed-fade-out{
+    opacity: 0;
+    animation: 0;
+    transition: opacity .25s;
+}
+
+/************************ End Type.js ***********************/
+
+a.image-link:hover::before {
+    background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+    transition: all 0.7s ease 0s;
+}
+a.image-link::before {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+}
+
+a.image-link {
+    display: block;
+    position: relative;
 }

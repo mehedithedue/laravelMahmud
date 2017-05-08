@@ -15,6 +15,8 @@
 <!--<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>-->
 <!-- backstretch-popup -->
 <script src="{{asset('assets/js/jquery.backstretch.min.js')}}"></script>
+
+<script src="{{asset('assets/js/typed.min.js')}}"></script>
 <!-- plugins js -->
 <script src="{{asset('assets/js/plugins.js')}}"></script>
 <!-- main js -->
