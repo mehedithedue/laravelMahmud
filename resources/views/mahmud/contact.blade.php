@@ -2,11 +2,7 @@
                      <h2 class="section-title" data-animate="fadeInDown">Contact</h2>
                      <div class="row">
                         <div class="col-md-8">
-<<<<<<< HEAD
                            <h4 class="margin-btm-md">Drop Us a Line</h4>
-=======
-                           <h4 class="margin-btm-md">Drop aUs a Line</h4>
->>>>>>> 202101038176a42cae9ffb367d6ec1b18703d4a9
                            <form role="form" action="formmail.php" class="contact-form validation-engine ajax-send">
                               <div class="row">
                                  <div class="col-sm-4 form-group">

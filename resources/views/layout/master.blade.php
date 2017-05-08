@@ -16,54 +16,46 @@
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
         <div class="home-section with-background" style="z-index: 1;">
             <div class="header-section">
-                
+
                 @include ( 'layout.nav' )
-                
+
             </div>
             <div id="home" class="home">
                 <div class="home-area">
-                    
+
                     @yield ( 'home' )
-                    
+
                 </div>
             </div>
         </div>
 
         <div class="container">
-            
-            <div id="about">
-                
-                @yield ( 'about' )
-                
-            </div>
-<<<<<<< HEAD
-            <div id="service">
 
-=======
-		</div>
-		<div class="container-fluid">
-            <div id="service">
-				<div class="container">
->>>>>>> 202101038176a42cae9ffb367d6ec1b18703d4a9
-                @yield ( 'service' )
-				</div>
+            <div id="about" class="about_area">
+
+                @yield ( 'about' )
+
             </div>
-<<<<<<< HEAD
-=======
-		</div>
-		<div class="container">
->>>>>>> 202101038176a42cae9ffb367d6ec1b18703d4a9
-            <div id="portfolio">
+        </div>
+        <div class="container-fluid">
+            <div id="service" class="service_area">
+                <div class="container">
+                    @yield ( 'service' )
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="portfolio" class="portfolio_area">
 
                 @yield ( 'portfolio' )
 
             </div>
-            <div id="contact">
+            <div id="contact" class="contact_area">
 
                 @yield ( 'contact' )
 
             </div>
-            
+
         </div>
 
         @include ( 'layout.js_link' )

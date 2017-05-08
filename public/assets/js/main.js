@@ -62,7 +62,7 @@
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
                 $('html,body').animate(
-                        { scrollTop: target.offset().top -50}, 1000
+                        { scrollTop: target.offset().top -40}, 1000
                         );
                 return false;
             }
@@ -75,6 +75,7 @@
 
     //Image Background
     $(".with-background").backstretch("assets/img/bg.jpg");
+    $("#service").backstretch("assets/img/bg_service.jpg");
     
 
 

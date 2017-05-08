@@ -44,7 +44,10 @@ p {
     margin: 0 0 15px;
 }
 h1,h2,h3,h4,h5,h6 {
-    margin: 0 0 10px;
+    margin: 0 0 20px;
+    font-family: "Oxygen",sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 a {
     transition: all 0.3s ease 0s;
@@ -89,8 +92,6 @@ body {
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
-<<<<<<< HEAD
-=======
 }
 .home-section {
     height: 100%;
@@ -137,8 +138,8 @@ body {
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  background-color: transparent;
-  color: #5cbe7e;
+    background-color: transparent;
+    color: #62c483;
 }
 
 
@@ -215,37 +216,36 @@ nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a:hover,nav.menu
 }
 
 label {
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  max-width: 100%;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    max-width: 100%;
 }
 
 .progress-bar-block .value {
-  float: right;
+    float: right;
 }   
 
 .progress {
-  box-shadow: none;
-  height: 12px;
+    box-shadow: none;
+    height: 12px;
 }
 
 .progress-bar {
-  background-color: #76d898;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
-  color: #76d898;
-  float: left;
-  font-size: 12px;
-  height: 100%;
-  line-height: 20px;
-  text-align: center;
-  transition: width 0.6s ease 0s;
-  width: 0;
+    background-color: #76d898;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+    color: #76d898;
+    float: left;
+    font-size: 12px;
+    height: 100%;
+    line-height: 20px;
+    text-align: center;
+    transition: width 0.6s ease 0s;
+    width: 0;
 }
 
 #service {
-  background-image: url("assets/img/bg_service.jpg");
->>>>>>> 202101038176a42cae9ffb367d6ec1b18703d4a9
+    /*background-image: url("../img/bg_service.jpg");*/
 }
 .home-section {
     height: 100%;
@@ -274,13 +274,31 @@ label {
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px;
-    transition: all 0.3s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
     text-transform: uppercase;
+    position: relative;
+}
+
+.navbar-nav > li > a:after {
+    background: #62c483;
+    position: absolute;
+    left:0;
+    bottom:5px;
+    height:0px;
+    content: '';
+    width:100%;
+    transition: ease .1s;
+    -webkit-transition: ease .1s;
 }
 .nav > li > a:hover,.nav > li > a:focus {
-    color: #8fd134;
+    color: #62c483;
     text-decoration: none;
     background: none;
+}
+
+.navbar-nav > li > a:hover:after {
+    height:4px;
 }
 .navbar-brand {
     font-size: 34px;
@@ -294,7 +312,7 @@ label {
 }
 .navbar-default .navbar-nav > .active > a,.navbar-default .navbar-nav > .active > a:hover,.navbar-default .navbar-nav > .active > a:focus {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    color: #8fd134;
+    color: #62c483;
     text-decoration: none;
 }
 nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li {
@@ -325,6 +343,8 @@ nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a:hover,nav.menu
 }
 #about {
     padding-top: 70px;
+    padding-bottom: 30px;
+
 }
 
 #about h3{
@@ -345,7 +365,6 @@ nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a:hover,nav.menu
     text-transform: uppercase;
     text-decoration: none;
 
-<<<<<<< HEAD
 }
 
 .accordion-group .accordion-body {
@@ -363,34 +382,60 @@ nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a:hover,nav.menu
 }
 
 label {
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  max-width: 100%;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    max-width: 100%;
 }
 
 .progress-bar-block .value {
-  float: right;
+    float: right;
 }   
 
 .progress {
-  box-shadow: none;
-  height: 12px;
+    box-shadow: none;
+    height: 12px;
 }
 
 .progress-bar {
-  background-color: #76d898;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
-  color: #76d898;
-  float: left;
-  font-size: 12px;
-  height: 100%;
-  line-height: 20px;
-  text-align: center;
-  transition: width 0.6s ease 0s;
-  width: 0;
-=======
+    background-color: #76d898;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+    color: #76d898;
+    float: left;
+    font-size: 12px;
+    height: 100%;
+    line-height: 20px;
+    text-align: center;
+    transition: width 0.6s ease 0s;
+    width: 0;
+}
+
 .container-fluid{
-padding:0px 
->>>>>>> 202101038176a42cae9ffb367d6ec1b18703d4a9
+    padding:0px;
+}
+
+.service_area{
+    padding-top: 80px;
+    padding-bottom: 40px;
+    color:#fff; 
+    background:#000;
+
+}
+
+.service-image img {
+    height: 330px;
+    width: 450px;
+}
+
+.service-content{
+    background: #fff;
+    color:#000;
+    padding: 25px;
+}
+
+.service-content h4{
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 0;
+    transition: all 0.3s ease-in-out 0s;
 }
