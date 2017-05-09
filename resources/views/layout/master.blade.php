@@ -15,20 +15,22 @@
         </style>
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
-        <div class="home-section with-background" style="z-index: 1;">
-            <div class="header-section">
+        <section style="z-index: 1;">
+			<div class="home-section with-background">
+				<div class="header-section">
 
-                @include ( 'layout.nav' )
+					@include ( 'layout.nav' )
 
-            </div>
-            <div id="home" class="home">
-                <div class="home-area">
+				</div>
+				<div id="home" class="home">
+					<div class="home-area">
 
-                    @yield ( 'home' )
+						@yield ( 'home' )
 
-                </div>
-            </div>
-        </div>
+					</div>
+				</div>
+			</div>
+		</section>
 
         <div class="container">
 
