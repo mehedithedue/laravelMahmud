@@ -15,14 +15,14 @@
         </style>
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
-        <section style="z-index: 1;">
-			<div class="home-section with-background">
+        <section>
+			<div class="home-section">
 				<div class="header-section">
 
 					@include ( 'layout.nav' )
 
 				</div>
-				<div id="home" class="home">
+				<div id="home" class="home with-background">
 					<div class="home-area">
 
 						@yield ( 'home' )
