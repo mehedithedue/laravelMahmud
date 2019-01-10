@@ -13,3 +13,14 @@ https://www.lokeshdhakar.com/projects/lightbox2/
 =================================================================================================
 
 =================================================================================================
+
+Project Architecture
+
+Menu        Image         Content           Setting
+------      -------       --------          -------
+id          menu_id       content_type      name                                                            
+name        image_path    content_text      value                                                                            
+#3d         category      content_data                                                                            
+#2d         ref_id                                                                                
+#interior                                                                                   
+#exterior                                                                                   
