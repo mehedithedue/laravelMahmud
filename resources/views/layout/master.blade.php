@@ -47,12 +47,14 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div id="portfolio" class="portfolio_area">
 
                 @yield ( 'portfolio' )
 
             </div>
+        </div>
+        <div class="container">
             <div id="contact" class="contact_area">
 
                 @yield ( 'contact' )

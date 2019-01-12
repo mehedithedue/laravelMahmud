@@ -13,6 +13,8 @@
 <!--<script src="{{asset('assets/js/wow.min.js')}}"></script>-->
 <!-- magnific-popup -->
 <!--<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>-->
+<!-- mixitup -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
 <!-- backstretch-popup -->
 <script src="{{asset('assets/js/jquery.backstretch.min.js')}}"></script>
 
