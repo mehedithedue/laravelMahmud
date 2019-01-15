@@ -18,8 +18,7 @@
         if ($(this).scrollTop() > 50) {
             $('.before').addClass("navbar-default");
             $('.before').removeClass("menu-item");
-        }
-        else {
+        } else {
             $('.before').removeClass("navbar-default");
             $('.before').addClass("menu-item");
         }
@@ -35,8 +34,8 @@
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
                 $('html,body').animate(
-                        { scrollTop: target.offset().top -40}, 1000
-                        );
+                    {scrollTop: target.offset().top - 40}, 1000
+                );
                 return false;
             }
         }
@@ -49,14 +48,56 @@
     //Image Background
     $(".with-background").backstretch("assets/img/bg.jpg");
     $("#service").backstretch("assets/img/bg_service.jpg");
-    
+
 
     /*-------------------
      mixitup
      -------------------*/
     var containerEl = document.querySelector('.mixitup_container');
     var mixer = mixitup(containerEl);
+    var limit = 1;
+    var offset = 8
 
 
+    $('#navbar ul.navbar-nav li a').on('click', function () {
+        if ($('#navbar').hasClass('in')) {
+            $('button.navbar-toggle').click();
+        };
+    });
+
+
+    getPortfolioItem(limit, offset, '.mixitup_container #mixitup_container_elements', mixer, containerEl)
+
+    $('.loadmore').on('click', function (event) {
+        limit = offset + 1;
+        offset = limit + 3;
+
+        var btn = $(this);
+        var btn_content = btn.html();
+        btn.html('<i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;'+' Loading .....');
+        btn.prop('disabled',true);
+
+        //getPortfolioItem(limit, offset, '.mixitup_container #mixitup_container_elements', mixer, containerEl)
+        setTimeout(function(){
+            getPortfolioItem(limit, offset, '.mixitup_container #mixitup_container_elements', mixer, containerEl);
+            btn.html(btn_content);
+            btn.prop('disabled', false);
+        }, 2500);
+
+    });
 
 })(jQuery);
+
+function getPortfolioItem(limit, offset, appendToId, mixer,containerEl) {
+
+    $.getJSON(fullPath + 'get-portfolio-item', {limit: limit, offset: offset})
+        .done(function (response) {
+            $(appendToId).append(response.html);
+            mixer.destroy();
+            mixitup(containerEl);
+        })
+        .fail(function (jqxhr, textStatus, error) {
+            var err = textStatus + ", " + error;
+            console.log("Request Failed: " + err);
+        });
+}

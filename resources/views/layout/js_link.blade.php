@@ -3,18 +3,11 @@
 <script src="{{asset('assets/js/jquery-1.12.0.min.js')}}"></script>
 <!-- bootstrap js -->
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-<!-- owl.carousel js -->
-<!--<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>-->
-<!-- meanmenu js -->
-<!--<script src="{{asset('assets/js/jquery.meanmenu.js')}}"></script>-->
-<!-- jquery-ui js -->
-<!--<script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>-->
-<!-- wow js -->
-<!--<script src="{{asset('assets/js/wow.min.js')}}"></script>-->
-<!-- magnific-popup -->
-<!--<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>-->
 <!-- mixitup -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
+<!-- lightbox -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.map"></script>
 <!-- backstretch-popup -->
 <script src="{{asset('assets/js/jquery.backstretch.min.js')}}"></script>
 
