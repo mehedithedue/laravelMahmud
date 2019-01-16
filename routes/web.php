@@ -8,10 +8,23 @@ Route::get('/xion-alter/clear-cache', 'FrontEndController@clearCache');
 
 Route::get('/get-portfolio-item', 'FrontEndController@getPortfolioItem');
 
-Route::group(['middleware' => ['web','auth']], function() {
+Route::group(['middleware' => ['web','auth'], 'prefix' => 'admin-section'], function() {
 
     Route::get('/home', 'HomeController@index')->name('home');
+
+
 });
+
+
+Route::group(['prefix' => 'admin-section'], function() {
+
+    Route::get('/image/upload', 'HomeController@image');
+
+    Route::post('files/store/{type}', 'FilesController@store');
+    Route::get('files/get', 'FilesController@getFile');
+    Route::get('files/put','FilesController@putPicture');
+});
+
 
 
 Route::get('login/sultan', 'Auth\LoginController@showLoginForm')->name('login');
