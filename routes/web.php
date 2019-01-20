@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin-section'], function() {
     Route::post('files/store/{type}', 'FilesController@store');
     Route::get('files/get', 'FilesController@getFile');
     Route::get('files/put','FilesController@putPicture');
+    Route::resource('menu', 'Admin\MenuController');
+    
 });
 
 
@@ -30,3 +32,4 @@ Route::group(['prefix' => 'admin-section'], function() {
 Route::get('login/sultan', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login/sultan', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+

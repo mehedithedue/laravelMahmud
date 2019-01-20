@@ -14,8 +14,9 @@ class FilesController extends Controller
 
     public function store($type, Request $request)
     {
-        $this->validate($request, [
-            'file' => 'image|max:1000'
+        try{
+            $this->validate($request, [
+            'file' => 'image|max:2000'
         ]);
 
         $image = $request->file;
@@ -28,16 +29,19 @@ class FilesController extends Controller
 
         $fileName = $this->uploadImage($image, $imagePath);
 
-        return response()->json([
-            'file_name' => $fileName,
-        ], 200);
+        return response()->json('File Uploaded', 200);
+        
+        }catch (\Exception $e) {
+
+            return response()->json($e->getMessage(), 500);
+        }
 
     }
 
     public function uploadImage($image, $imagePath)
     {
 
-        $imageName = uniqid() . time() . '.' . $image->getClientOriginalExtension();
+        $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
 
         $thumbnailPath = $imagePath . '/thumbnail/';
         $midSizePath = $imagePath . '/mid/';

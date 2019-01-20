@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | General Form Elements</title>
+    <title>Mahmud Admin </title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
 
@@ -91,16 +91,11 @@
     </footer>
 </div>
 
-@yield('footer-script')
-<!-- jQuery 3 -->
 <script src="{{ asset('assets/js/jqueryV3.min.js') }}"></script>
-<!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-<!-- FastClick -->
 <script src="{{ asset('assets/js/fastclick.js') }}"></script>
-<!-- AdminLTE App -->
 <script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
+@yield('footer-script')
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 </body>
 </html>
