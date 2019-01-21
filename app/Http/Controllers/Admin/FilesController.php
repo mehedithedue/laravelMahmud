@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
@@ -14,24 +16,22 @@ class FilesController extends Controller
 
     public function store($type, Request $request)
     {
-        try{
+        try {
             $this->validate($request, [
-            'file' => 'image|max:2000'
-        ]);
+                'file' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ]);
 
-        $image = $request->file;
+            $image = $request->file;
 
-        $imagePath = public_path('uploads/' . $type);
 
-        if (File::exists($imagePath)) {
-            File::delete($imagePath);
-        }
+            $imagePath = storage_path('app/public/uploads/' . $type);
 
-        $fileName = $this->uploadImage($image, $imagePath);
+            if($this->uploadImage($image, $imagePath)){
 
-        return response()->json('File Uploaded', 200);
-        
-        }catch (\Exception $e) {
+                return response()->json('File Uploaded', 200);
+            }
+
+        } catch (\Exception $e) {
 
             return response()->json($e->getMessage(), 500);
         }
@@ -62,13 +62,16 @@ class FilesController extends Controller
 
         })->save($thumbnailPath . $imageName);
 
-        Image::make($image)->resize(900, null, function ($constraint) {
+        Image::make($image)->resize(1000, null, function ($constraint) {
 
             $constraint->aspectRatio();
 
         })->save($midSizePath . $imageName);
 
-        return $imageName;
+        return (object)[
+            'mid_image' => $midSizePath . $imageName,
+            'thumb_image' => $thumbnailPath . $imageName
+        ];
     }
 
 }

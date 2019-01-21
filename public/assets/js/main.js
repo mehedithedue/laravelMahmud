@@ -48,6 +48,7 @@
     //Image Background
     $(".with-background").backstretch("assets/img/bg.jpg");
     $("#service").backstretch("assets/img/bg_service.jpg");
+    $("#quote").backstretch("assets/img/bg_service.jpg");
 
 
     /*-------------------
@@ -55,8 +56,8 @@
      -------------------*/
     var containerEl = document.querySelector('.mixitup_container');
     var mixer = mixitup(containerEl);
-    var limit = 1;
-    var offset = 8
+    var limit = 16;
+    var offset = 0
 
 
     $('#navbar ul.navbar-nav li a').on('click', function () {
@@ -69,8 +70,8 @@
     getPortfolioItem(limit, offset, '.mixitup_container #mixitup_container_elements', mixer, containerEl)
 
     $('.loadmore').on('click', function (event) {
-        limit = offset + 1;
-        offset = limit + 3;
+        offset = offset + limit;
+        limit = 4;
 
         var btn = $(this);
         var btn_content = btn.html();
@@ -82,7 +83,7 @@
             getPortfolioItem(limit, offset, '.mixitup_container #mixitup_container_elements', mixer, containerEl);
             btn.html(btn_content);
             btn.prop('disabled', false);
-        }, 2500);
+        }, 1000);
 
     });
 

@@ -47,12 +47,10 @@
 
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="hidden-xs">Alexander</span>
+                            <span class="hidden-xs">{{ isset(Auth::user()->name) ? Auth::user()->name : '' }}</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            @if (!Auth::guest())
-                                <li><a href="{{ route('login') }}">Login</a></li>
-                            @else
+                        @if (!Auth::guest())
+                            <ul class="dropdown-menu">
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
@@ -69,8 +67,8 @@
                                         </div>
                                     </div>
                                 </li>
-                            @endif
-                        </ul>
+                            </ul>
+                        @endif
                     </li>
                 </ul>
             </div>
@@ -94,6 +92,7 @@
 <script src="{{ asset('assets/js/jqueryV3.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/fastclick.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
 @yield('footer-script')
 <script src="{{ asset('assets/js/custom.js') }}"></script>

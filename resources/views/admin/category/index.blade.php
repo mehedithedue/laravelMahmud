@@ -8,20 +8,20 @@
                <div class="col-md-12">
                    <div class="box">
                        <div class="box-header box-header-success box-header-icon">
-                           <h4 class="box-title">List of All %%modelName%% </h4>
-                           <a href="{{route('%%routeGroup%%%%viewName%%.create')}}"
+                           <h4 class="box-title">List of All Category </h4>
+                           <a href="{{route('category.create')}}"
                            class="btn btn-primary btn-round btn-sm pull-right">
-                            Add New %%modelName%%
+                            Add New Category
                            </a>
                        </div>
                        <div class="box-body">
 
                            <div class="table-responsive">
 
-                               <table id="datatables-%%routeGroup%%%%viewName%%" class="table table-striped table-no-bordered table-hover">
+                               <table id="datatables-category" class="table table-striped table-no-bordered table-hover">
                                    <thead>
                                        <tr>
-                                           %%formHeadingHtml%%
+                                           <th>Name</th><th>Category</th><th>Status</th><th>Serial</th>
                                            <th class="disabled-sorting text-right">Actions</th>
                                        </tr>
                                    </thead>
@@ -42,13 +42,10 @@
 
     <script type="text/javascript">
 
-        /*
-            %%formHeadingHtml%%
-        */
 
         $(document).ready(function() {
 
-            var table = $('#datatables-%%routeGroup%%%%viewName%%').DataTable({
+            var table = $('#datatables-category').DataTable({
                 "pagingType": "full_numbers",
 
                 responsive: true,
@@ -57,23 +54,23 @@
                     searchPlaceholder: "Search records",
                     processing: "Loading .....",
                 },
-                "ajax": "{{route('%%routeGroup%%%%viewName%%.index.json')}}",
+                "ajax": "{{route('category.index.json')}}",
                 "columns": [
-                    { "data": "mmmmmm" },
-                    { "data": "mmmmmm" },
-                    { "data": "mmmmmm" },
-                    { "data": "mmmmmm" },
-                    { "data": "mmmmmm" },
+                    { "data": "name" },
+                    { "data": "category" },
+                    { "data": "status" },
+                    { "data": "serial" },
                     {
                         "data": "id",
                         render: function (data, type, row, meta) {
-                            return '<a href="{{url("admin-section/%%routeGroup%%%%viewName%%")}}/' + data + '/edit" class="btn btn-sm btn-primary btn-just-icon edit">Edit</a>' +
-                                '' +
-                                '<form action="{{url("admin-section/%%routeGroup%%%%viewName%%")}}/' + data + '" method="post" style=" display: inline;">' +
-                                '<input type="hidden" name="_method" value="delete">' +
-                                '<input type="hidden" name="_token" value="{{ csrf_token() }}">' +
-                                '<button class="btn btn-sm btn-danger btn-just-icon remove">Delete</button>' +
-                                '</form>';
+                            return '<a href="{{url("admin-section/category")}}/' + data + '/edit" class="btn btn-sm btn-primary btn-just-icon edit">Edit Category</a>' +
+                                ''
+                                //'<form action="{{url("admin-section/category")}}/' + data + '" method="post" style=" display: inline;">' +
+                                //'<input type="hidden" name="_method" value="delete">' +
+                                //'<input type="hidden" name="_token" value="{{ csrf_token() }}">' +
+                                //'<button class="btn btn-sm btn-danger btn-just-icon remove">Delete</button>' +
+                                //'</form>'
+                            ;
                         }
 
                     }
@@ -86,7 +83,7 @@
 
                 e.preventDefault();
 
-                if (confirm("Ara you sure delete %%crudNameCap%% ? ")) {
+                if (confirm("Ara you sure delete Category ? ")) {
 
                     $tr = $(this).closest('tr');
                     table.row($tr).remove().draw();

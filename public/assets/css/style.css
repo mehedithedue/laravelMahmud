@@ -208,6 +208,7 @@ nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a:hover,nav.menu
 }
 #portfolio {
     padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 #portfolio h3{
@@ -216,7 +217,8 @@ nav.menu-item div.navbar-collapse.collapse.in ul.scroll-to > li a:hover,nav.menu
 }
 
 #quote {
-    padding-top: 80px;
+    padding-top: 40px;
+
 }
 
 #quote h3{
@@ -776,4 +778,8 @@ a.control{
 }
 .margin_bottom_20{
     margin-bottom: 20px !important;
+}
+
+.quote_header{
+    color:#fff !important;
 }

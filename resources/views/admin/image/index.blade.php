@@ -8,20 +8,20 @@
                <div class="col-md-12">
                    <div class="box">
                        <div class="box-header box-header-success box-header-icon">
-                           <h4 class="box-title">List of All %%modelName%% </h4>
-                           <a href="{{route('%%routeGroup%%%%viewName%%.create')}}"
+                           <h4 class="box-title">List of All Image </h4>
+                           <a href="{{route('image.create')}}"
                            class="btn btn-primary btn-round btn-sm pull-right">
-                            Add New %%modelName%%
+                            Add New Image
                            </a>
                        </div>
                        <div class="box-body">
 
                            <div class="table-responsive">
 
-                               <table id="datatables-%%routeGroup%%%%viewName%%" class="table table-striped table-no-bordered table-hover">
+                               <table id="datatables-image" class="table table-striped table-no-bordered table-hover">
                                    <thead>
                                        <tr>
-                                           %%formHeadingHtml%%
+                                           <th>Type</th><th>Category Id</th><th>Ref Id</th><th>File Path</th><th>Status</th>
                                            <th class="disabled-sorting text-right">Actions</th>
                                        </tr>
                                    </thead>
@@ -43,12 +43,12 @@
     <script type="text/javascript">
 
         /*
-            %%formHeadingHtml%%
+            <th>Type</th><th>Category Id</th><th>Ref Id</th><th>File Path</th><th>Status</th>
         */
 
         $(document).ready(function() {
 
-            var table = $('#datatables-%%routeGroup%%%%viewName%%').DataTable({
+            var table = $('#datatables-image').DataTable({
                 "pagingType": "full_numbers",
 
                 responsive: true,
@@ -57,7 +57,7 @@
                     searchPlaceholder: "Search records",
                     processing: "Loading .....",
                 },
-                "ajax": "{{route('%%routeGroup%%%%viewName%%.index.json')}}",
+                "ajax": "{{route('image.index.json')}}",
                 "columns": [
                     { "data": "mmmmmm" },
                     { "data": "mmmmmm" },
@@ -67,9 +67,9 @@
                     {
                         "data": "id",
                         render: function (data, type, row, meta) {
-                            return '<a href="{{url("admin-section/%%routeGroup%%%%viewName%%")}}/' + data + '/edit" class="btn btn-sm btn-primary btn-just-icon edit">Edit</a>' +
+                            return '<a href="{{url("admin-section/image")}}/' + data + '/edit" class="btn btn-sm btn-primary btn-just-icon edit">Edit</a>' +
                                 '' +
-                                '<form action="{{url("admin-section/%%routeGroup%%%%viewName%%")}}/' + data + '" method="post" style=" display: inline;">' +
+                                '<form action="{{url("admin-section/image")}}/' + data + '" method="post" style=" display: inline;">' +
                                 '<input type="hidden" name="_method" value="delete">' +
                                 '<input type="hidden" name="_token" value="{{ csrf_token() }}">' +
                                 '<button class="btn btn-sm btn-danger btn-just-icon remove">Delete</button>' +
@@ -86,7 +86,7 @@
 
                 e.preventDefault();
 
-                if (confirm("Ara you sure delete %%crudNameCap%% ? ")) {
+                if (confirm("Ara you sure delete Image ? ")) {
 
                     $tr = $(this).closest('tr');
                     table.row($tr).remove().draw();

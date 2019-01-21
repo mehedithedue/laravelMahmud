@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use Artisan;
 use Illuminate\Http\Request;
 
@@ -19,13 +20,19 @@ class FrontEndController extends Controller
         $limit = $request->limit;
         $offset = $request->offset;
 
-        if($limit > 30 || $offset > 34) {
-            return response()->json([
-                'html' => '',
+        $portfolioImages = Image::leftJoin('categories', 'images.category_id', '=', 'categories.id')
+            ->orderBy('order', 'Desc')
+            ->offset($offset)
+            ->limit($limit)
+            ->get([
+                'images.id',
+                'images.file_path',
+                'images.thumb_file_path',
+                'images.type',
+                'categories.name',
+                'categories.category as category',
             ]);
-        }
-
-        $public_html = strval(view('mahmud.portfolio_elements', compact('limit', 'offset')));
+        $public_html = strval(view('mahmud.portfolio_elements', compact('portfolioImages')));
 
         return response()->json([
             'html' => $public_html,

@@ -1,26 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1> Edit %%modelName%%  </h1>
-    </section>
    <section class="content">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="box box-info">
-                    <div class="box-header">%%modelName%% {{ $%%crudNameSingular%%->%%primaryKey%% }}</div>
+                    <div class="box-header box-header-success box-header-icon">
+                        <h4 class="box-title">  %%crudNameCap%%
+                            <small class="category">Details of  %%modelName%% </small>
+                        </h4>
+                    </div>
                     <div class="box-body">
                         <div class="col-md-12">
-                            <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                            <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%% . '/edit') }}" title="Edit %%modelName%%"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                            <a href="{{ url('admin-section/%%routeGroup%%%%viewName%%') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                            <a href="{{ url('admin-section/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%% . '/edit') }}" title="Edit %%modelName%%"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                            <form method="POST" action="{{ url('%%routeGroup%%%%crudName%%' . '/' . $%%crudNameSingular%%->%%primaryKey%%) }}" accept-charset="UTF-8" style="display:inline">
+                            <form method="POST" action="{{ url('admin-section/%%routeGroup%%%%crudName%%' . '/' . $%%crudNameSingular%%->%%primaryKey%%) }}" accept-charset="UTF-8" style="display:inline">
                                 {{ method_field('DELETE') }}
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete %%modelName%%" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                             </form>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table table-striped table-no-bordered">
                                     <tbody>
                                         <tr>
                                             <th>ID</th><td>{{ $%%crudNameSingular%%->%%primaryKey%% }}</td>

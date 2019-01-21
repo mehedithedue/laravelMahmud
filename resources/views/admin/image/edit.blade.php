@@ -7,13 +7,13 @@
                 <div class="box box-info">
                     <div class="box-header">
                         <h3>
-                            Edit %%modelName%%
+                            Edit Image
                            <div class="btn-group  pull-right">
-                               <a href="{{route('admin-section/%%routeGroup%%%%viewName%%.create')}}" class="btn btn-info btn-round btn-sm">
-                                   Add %%crudNameCap%%
+                               <a href="{{route('admin-section/image.create')}}" class="btn btn-info btn-round btn-sm">
+                                   Add Image
                                </a>
-                               <a href="{{route('admin-section/%%routeGroup%%%%viewName%%.index')}}" class="btn btn-primary btn-round btn-sm">
-                                   All %%crudNameCap%%
+                               <a href="{{route('admin-section/image.index')}}" class="btn btn-primary btn-round btn-sm">
+                                   All Image
                                </a>
                            </div>
                            </h3>
@@ -28,11 +28,11 @@
                                 </ul>
                             @endif
 
-                            <form method="POST" action="{{ url('admin-section/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%%) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                            <form method="POST" action="{{ url('admin-section/image/' . $image->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                                 {{ method_field('PATCH') }}
                                 {{ csrf_field() }}
 
-                                @include ('%%viewTemplateDir%%.form', ['formMode' => 'edit'])
+                                @include ('admin.image.form', ['formMode' => 'edit'])
 
                             </form>
                         </div>

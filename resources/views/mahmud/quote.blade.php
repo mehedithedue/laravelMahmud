@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row margin_bottom_20">
-        <div class="col-md-12 text-center ">
+        <div class="col-md-12 text-center quote_header">
             <h1>3D Rendering Quote</h1>
             <p>Thanks for the opportunity to quote on your project please see below our quote form please provide as
                 much information as possible and we will come back to you within 24 hours with a detailed quote and
@@ -11,12 +11,10 @@
     <div class="section st no-padding margin_top_20">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <section style=" border: 10px solid #ededed; padding: 30px; ">
-                    <hr>
+                <section style="background: #fff; border: 10px solid #ededed; padding: 30px; ">
                     <h4>3D Render Fee Request</h4>
                     <small>Please fill out the form and upload your plans and we'll come back to you with a price.
                     </small>
-                    <hr>
                     <form role="form" method="post" action=""
                           class="contact-form form-horizontal validation-engine ajax-send">
                         <div class="row">
@@ -53,53 +51,59 @@
 
 
                                 <div class="col-md-12 form-group">
-                                    <p style="font-size:12px; color:#000">What Type of Views Are You Looking For ?</p>
+                                    <p style="font-size:12px;"><b>What Type of Views Are You Looking For ?</b></p>
 
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="3d_video_tours"> 3d video tours
-                                        </label>
+                                    <div class="col-md-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="3d_video_tours"> 3d video tours
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="3d_exteriors_single_facade"> 3D Exteriors -
+                                                Single Facade
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="3d_interiors_"> 3D Interiors
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="other">
+                                                <input type="text" name="other" placeholder="Other"
+                                                       class="no-radius form-control"/>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="3d_exteriors_single_facade"> 3D Exteriors -
-                                            Single Facade
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="3d_interiors_"> 3D Interiors
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="3d_streetscapes_commercial"> 3D Streetscapes
-                                            - Commercial
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="3d_streetscapes_apartments"> 3D Streetscapes
-                                            - Apartments
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="3d_streetscapes_townhouses"> 3D Streetscapes
-                                            - Townhouses
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="2d_floor_plans"> 2D Floor Plans
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="other">
-                                            <input type="text" name="other" placeholder="Other"
-                                                   class="no-radius form-control"/>
-                                        </label>
+                                    <div class="col-md-6">
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="3d_streetscapes_commercial"> 3D Streetscapes
+                                                - Commercial
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="3d_streetscapes_apartments"> 3D Streetscapes
+                                                - Apartments
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="3d_streetscapes_townhouses"> 3D Streetscapes
+                                                - Townhouses
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="2d_floor_plans"> 2D Floor Plans
+                                            </label>
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -108,7 +112,7 @@
                                     <div class="col-md-12">
                                         <p>Job Description</p>
                                         <textarea name="job_description" id="" class="no-radius form-control"
-                                                  rows="5"></textarea>
+                                                  rows="4"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -116,7 +120,6 @@
                                         <input multiple="multiple" type="file" name="file">
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="row">
@@ -129,6 +132,7 @@
                         </div>
                     </form>
                 </section>
+                <div style="clear: both; margin-top:20px;"></div>
             </div>
         </div>
     </div>

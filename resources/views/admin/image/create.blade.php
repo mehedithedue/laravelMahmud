@@ -7,10 +7,10 @@
                 <div class="box box-info">
                     <div class="box-header">
                         <h3>
-                            Create New %%modelName%%
+                            Create New Image
                             <div class="pull-right">
-                                <a href="{{route('admin-section/%%routeGroup%%%%viewName%%.index')}}" class="btn btn-primary btn-round btn-sm">
-                                    All %%crudNameCap%% List
+                                <a href="{{route('admin-section/image.index')}}" class="btn btn-primary btn-round btn-sm">
+                                    All Image List
                                 </a>
                             </div>
                         </h3>
@@ -25,10 +25,10 @@
                             </ul>
                             @endif
 
-                            <form method="POST" action="{{ url('admin-section/%%routeGroup%%%%viewName%%') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                            <form method="POST" action="{{ url('admin-section/image') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
-                                @include ('%%viewTemplateDir%%.form', ['formMode' => 'create'])
+                                @include ('admin.image.form', ['formMode' => 'create'])
 
                             </form>
 
