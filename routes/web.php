@@ -26,16 +26,14 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'admin-section'], func
     Route::get('image-json', 'Admin\ImageController@indexJson')->name('image.index.json');
     Route::get('portfolio-image/{type}', 'Admin\ImageController@showPortfolioImage');
     Route::get('portfolio-image-json/{categoryId}/{type}', 'Admin\ImageController@portfolioImageJson');
+    Route::delete('portfolio-image/{image}', 'Admin\ImageController@destroy');
 
-    Route::resource('image', 'Admin\ImageController');
+    Route::get('upload-logo', 'Admin\ImageController@uploadLogo');
+    Route::post('upload-logo-store', 'Admin\ImageController@storeLogo');
 
+    Route::get('content-json', 'Admin\ContentController@indexJson')->name('content.index.json');
+    Route::resource('content', 'Admin\ContentController');
 
 });
 
-
-
-
-
-
-
-
+Route::resource('content', 'Admin\\ContentController');

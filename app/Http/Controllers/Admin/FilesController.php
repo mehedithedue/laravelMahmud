@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Log;
 
 
 class FilesController extends Controller
@@ -32,7 +33,7 @@ class FilesController extends Controller
             }
 
         } catch (\Exception $e) {
-
+            Log::error($e->getMessage());
             return response()->json($e->getMessage(), 500);
         }
 
@@ -41,37 +42,45 @@ class FilesController extends Controller
     public function uploadImage($image, $imagePath)
     {
 
-        $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
+        try{
 
-        $thumbnailPath = $imagePath . '/thumbnail/';
-        $midSizePath = $imagePath . '/mid/';
+            $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
 
-        if (!File::exists($thumbnailPath)) {
+            $thumbnailPath = $imagePath . '/thumbnail/';
+            $midSizePath = $imagePath . '/mid/';
 
-            File::makeDirectory($thumbnailPath, $mode = 0777, true, true);
+            if (!File::exists($thumbnailPath)) {
+
+                File::makeDirectory($thumbnailPath, $mode = 0777, true, true);
+            }
+
+            if (!File::exists($midSizePath)) {
+
+                File::makeDirectory($midSizePath, $mode = 0777, true, true);
+            }
+
+            Image::make($image)->resize(250, null, function ($constraint) {
+
+                $constraint->aspectRatio();
+
+            })->save($thumbnailPath . $imageName);
+
+            Image::make($image)->resize(1000, null, function ($constraint) {
+
+                $constraint->aspectRatio();
+
+            })->save($midSizePath . $imageName);
+
+            return (object)[
+                'mid_image' => $midSizePath . $imageName,
+                'thumb_image' => $thumbnailPath . $imageName
+            ];
+
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json($e->getMessage(), 500);
         }
 
-        if (!File::exists($midSizePath)) {
-
-            File::makeDirectory($midSizePath, $mode = 0777, true, true);
-        }
-
-        Image::make($image)->resize(250, null, function ($constraint) {
-
-            $constraint->aspectRatio();
-
-        })->save($thumbnailPath . $imageName);
-
-        Image::make($image)->resize(1000, null, function ($constraint) {
-
-            $constraint->aspectRatio();
-
-        })->save($midSizePath . $imageName);
-
-        return (object)[
-            'mid_image' => $midSizePath . $imageName,
-            'thumb_image' => $thumbnailPath . $imageName
-        ];
     }
 
 }

@@ -10,7 +10,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand logo" href="#">MAHMUD</a>
+                    <a class="navbar-brand logo" href="#" style="padding: 0px !important;">
+                        @if(!empty(\App\Models\ImageModel::getLogo()))
+                            <img src="{{url(\App\Models\ImageModel::getLogo())}}" alt="Logo" >
+                        @else
+                        <span>Mahmud</span>
+                        @endif
+                    </a>
                 </div>
             </div>
             <div class="col-md-8">

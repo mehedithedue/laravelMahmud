@@ -3,12 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+        <div class="col-md-8 col-md-offset-2 ">
+            <div class="panel panel-default margin_top_20">
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
                     Welcome {{ Auth()->user()->name }} ! You are logged in!
+
                 </div>
             </div>
         </div>

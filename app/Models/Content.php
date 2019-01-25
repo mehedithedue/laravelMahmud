@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class Content extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'images';
+    protected $table = 'contents';
 
     /**
     * The database primary key value.
@@ -25,7 +25,7 @@ class Image extends Model
      *
      * @var array
      */
-    protected $fillable = ['type', 'category_id', 'ref_id', 'file_path','thumb_file_path', 'status', 'order'];
+    protected $fillable = ['type', 'ref_id', 'key', 'data', 'status'];
 
     
 }

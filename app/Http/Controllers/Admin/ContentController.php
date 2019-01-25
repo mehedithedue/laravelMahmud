@@ -1,15 +1,15 @@
 <?php
 
-namespace DummyNamespace;
+namespace App\Http\Controllers\Admin;
 
-use DummyRootNamespaceHttp\Requests;
-use DummyRootNamespaceHttp\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
-use DummyRootNamespace{{modelNamespace}}{{modelName}};
+use App\Models\Content;
 use Illuminate\Http\Request;
 use Log;
 
-class DummyClass extends Controller
+class ContentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class DummyClass extends Controller
     public function index()
     {
         try{
-          return view('{{viewPath}}{{viewName}}.index');
+          return view('admin.content.index');
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return redirect()->back()->with('error', "sorry, There is a error".$e->getMessage().'['.$e->getLine().']');
@@ -29,7 +29,7 @@ class DummyClass extends Controller
     public function indexJson()
     {
         try{
-          return response()->json(['data' => {{modelName}}::all()]);
+          return response()->json(['data' => Content::all()]);
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return response()->json($e->getMessage(), 500);
@@ -43,7 +43,7 @@ class DummyClass extends Controller
      */
     public function create()
     {
-        return view('{{viewPath}}{{viewName}}.create');
+        return view('admin.content.create');
     }
 
     /**
@@ -53,12 +53,12 @@ class DummyClass extends Controller
     public function store(Request $request)
     {
         try{
-            {{validationRules}}
+            
             $requestData = $request->all();
-            {{fileSnippet}}
-            {{modelName}}::create($requestData);
+            
+            Content::create($requestData);
 
-            return redirect()->route('{{routeGroup}}{{viewName}}.create')->with('success', '{{modelName}} added!');
+            return redirect()->route('content.create')->with('success', 'Content added!');
 
         } catch (\Exception $e) {
             Log::error($e->getMessage());
@@ -75,8 +75,8 @@ class DummyClass extends Controller
     public function edit($id)
     {
         try{
-            ${{crudNameSingular}} = {{modelName}}::find($id);
-            return view('{{viewPath}}{{viewName}}.edit', compact('{{crudNameSingular}}'));
+            $content = Content::find($id);
+            return view('admin.content.edit', compact('content'));
 
         } catch (\Exception $e) {
             Log::error($e->getMessage());
@@ -89,16 +89,16 @@ class DummyClass extends Controller
      * Update the specified resource in storage.
      *
      */
-    public function update(Request $request, {{modelName}} $id)
+    public function update(Request $request, Content $id)
     {
         try{
-            ${{crudNameSingular}} = {{modelName}}::find($id);
-            {{validationRules}}
+            $content = Content::find($id);
+            
             $requestData = $request->all();
-            {{fileSnippet}}
-            ${{crudNameSingular}}->update($requestData);
+            
+            $content->update($requestData);
 
-            return redirect()->route('{{routeGroup}}{{viewName}}.edit', ${{crudNameSingular}}->id)->with('success', '{{modelName}} updated!');
+            return redirect()->route('content.edit', $content->id)->with('success', 'Content updated!');
 
         } catch (\Exception $e) {
             Log::error($e->getMessage());
@@ -113,8 +113,8 @@ class DummyClass extends Controller
     public function destroy($id)
     {
         try{
-            ${{crudNameSingular}} = {{modelName}}::find($id);
-            ${{crudNameSingular}}->delete();
+            $content = Content::find($id);
+            $content->delete();
 
             return ' Deleted successfully';
         } catch (\Exception $e) {

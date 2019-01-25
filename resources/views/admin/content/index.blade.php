@@ -4,24 +4,25 @@
 @endsection
 @section('content')
    <section class="content">
+    @include('layouts.alert')
    <div class="row">
                <div class="col-md-12">
                    <div class="box">
                        <div class="box-header box-header-success box-header-icon">
-                           <h4 class="box-title">List of All Image </h4>
-                           <a href="{{route('image.create')}}"
+                           <h4 class="box-title">List of All Content </h4>
+                           <a href="{{route('content.create')}}"
                            class="btn btn-primary btn-round btn-sm pull-right">
-                            Add New Image
+                            Add New Content
                            </a>
                        </div>
                        <div class="box-body">
 
                            <div class="table-responsive">
 
-                               <table id="datatables-image" class="table table-striped table-no-bordered table-hover">
+                               <table id="datatables-content" class="table table-striped table-no-bordered table-hover">
                                    <thead>
                                        <tr>
-                                           <th>Type</th><th>Category Id</th><th>Ref Id</th><th>File Path</th><th>Status</th>
+                                           <th>Type</th><th>Ref Id</th><th>Key</th><th>Data</th><th>Status</th>
                                            <th class="disabled-sorting text-right">Actions</th>
                                        </tr>
                                    </thead>
@@ -43,12 +44,12 @@
     <script type="text/javascript">
 
         /*
-            <th>Type</th><th>Category Id</th><th>Ref Id</th><th>File Path</th><th>Status</th>
+            <th>Type</th><th>Ref Id</th><th>Key</th><th>Data</th><th>Status</th>
         */
 
         $(document).ready(function() {
 
-            var table = $('#datatables-image').DataTable({
+            var table = $('#datatables-content').DataTable({
                 "pagingType": "full_numbers",
 
                 responsive: true,
@@ -57,7 +58,7 @@
                     searchPlaceholder: "Search records",
                     processing: "Loading .....",
                 },
-                "ajax": "{{route('image.index.json')}}",
+                "ajax": "{{route('content.index.json')}}",
                 "columns": [
                     { "data": "mmmmmm" },
                     { "data": "mmmmmm" },
@@ -67,9 +68,9 @@
                     {
                         "data": "id",
                         render: function (data, type, row, meta) {
-                            return '<a href="{{url("admin-section/image")}}/' + data + '/edit" class="btn btn-sm btn-primary btn-just-icon edit">Edit</a>' +
+                            return '<a href="{{url("admin-section/content")}}/' + data + '/edit" class="btn btn-sm btn-primary btn-just-icon edit">Edit</a>' +
                                 '' +
-                                '<form action="{{url("admin-section/image")}}/' + data + '" method="post" style=" display: inline;">' +
+                                '<form action="{{url("admin-section/content")}}/' + data + '" method="post" style=" display: inline;">' +
                                 '<input type="hidden" name="_method" value="delete">' +
                                 '<input type="hidden" name="_token" value="{{ csrf_token() }}">' +
                                 '<button class="btn btn-sm btn-danger btn-just-icon remove">Delete</button>' +
@@ -86,7 +87,7 @@
 
                 e.preventDefault();
 
-                if (confirm("Ara you sure delete Image ? ")) {
+                if (confirm("Ara you sure delete Content ? ")) {
 
                     $tr = $(this).closest('tr');
                     table.row($tr).remove().draw();

@@ -54,6 +54,9 @@
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-12 text-center">
+                                            <a class="btn-block btn-flat btn" target="_blank" href="{{ url('/') }}">
+                                                Go To Site
+                                            </a>
                                             <a class="btn-block btn-flat btn" href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

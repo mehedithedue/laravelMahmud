@@ -151,12 +151,10 @@
                     {
                         "data": "id",
                         render: function (data, type, row, meta) {
-                            return '<a href="{{url("admin-section/image")}}/' + data + '/edit" class="btn btn-sm btn-primary btn-just-icon edit">Edit</a>' +
-                                '' +
-                                '<form action="{{url("admin-section/image")}}/' + data + '" method="post" style=" display: inline;">' +
+                            return '<form action="{{url("admin-section/portfolio-image")}}/' + data + '" method="post" style=" display: inline;">' +
                                 '<input type="hidden" name="_method" value="delete">' +
                                 '<input type="hidden" name="_token" value="{{ csrf_token() }}">' +
-                                '<button class="btn btn-sm btn-danger btn-just-icon remove">Delete</button>' +
+                                '<button type="submit" class="btn btn-danger btn-just-icon remove">Delete</button>' +
                                 '</form>';
                         }
 
@@ -170,7 +168,7 @@
 
                 e.preventDefault();
 
-                if (confirm("Ara you sure delete Image ? ")) {
+                if (confirm("Ara you sure delete {{$category->name}} Image  ? ")) {
 
                     $tr = $(this).closest('tr');
                     table.row($tr).remove().draw();

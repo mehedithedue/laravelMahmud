@@ -1,8 +1,11 @@
 /node_modules
 /public/storage
-/public/uploads
 /public/hot
 /storage/*.key
+/storage/framework/views/
+/storage/framework/sessions/
+/storage/framework/logs/
+/storage/app/public/uploads
 /vendor
 /.idea
 Homestead.json

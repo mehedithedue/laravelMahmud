@@ -8,13 +8,13 @@
                 <div class="box box-info">
                     <div class="box-header">
                         <h3>
-                            Edit %%modelName%%
+                            Edit Content
                            <div class="btn-group  pull-right">
-                               <a href="{{route('%%routeGroup%%%%viewName%%.create')}}" class="btn btn-info btn-round btn-sm">
-                                   Add %%crudNameCap%%
+                               <a href="{{route('content.create')}}" class="btn btn-info btn-round btn-sm">
+                                   Add Content
                                </a>
-                               <a href="{{route('%%routeGroup%%%%viewName%%.index')}}" class="btn btn-primary btn-round btn-sm">
-                                   All %%crudNameCap%%
+                               <a href="{{route('content.index')}}" class="btn btn-primary btn-round btn-sm">
+                                   All Content
                                </a>
                            </div>
                            </h3>
@@ -22,11 +22,11 @@
                     <div class="box-body">
                     <div class="col-md-12">
 
-                            <form method="POST" action="{{ url('admin-section/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%%) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                            <form method="POST" action="{{ url('admin-section/content/' . $content->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                                 {{ method_field('PATCH') }}
                                 {{ csrf_field() }}
 
-                                @include ('%%viewTemplateDir%%.form', ['formMode' => 'edit'])
+                                @include ('admin.content.form', ['formMode' => 'edit'])
 
                             </form>
                         </div>

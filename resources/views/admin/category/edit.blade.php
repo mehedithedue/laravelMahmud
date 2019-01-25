@@ -5,17 +5,18 @@
         <h1> Edit Category </h1>
     </section>
     <section class="content">
+        @include('layouts.alert')
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="box box-info">
                     <div class="box-header">
                         Edit Category
                         <div class="btn-group pull-right">
-                            <a href="" class="btn btn-info btn-round btn-sm">
-                                Add %%crudNameCap%%
+                            <a href="{{url('admin-section/category/create')}}" class="btn btn-info btn-round btn-sm">
+                                Add Category
                             </a>
-                            <a href="" class="btn btn-primary btn-round btn-sm">
-                                All %%crudNameCap%%
+                            <a href="{{url('admin-section/category')}}" class="btn btn-primary btn-round btn-sm">
+                                All Category
                             </a>
                         </div>
                     </div>

@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="icon" type="image/png" href="http://localhost:8000/assets/img/favicon.png">
 
-    <link href="http://localhost:8000/assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost:8000/assets//css/style.css">
+    <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets//css/style.css') }}">
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
             href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

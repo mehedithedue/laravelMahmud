@@ -45,7 +45,7 @@
      Backstretch
      -------------------*/
 
-    //Image Background
+    //ImageModel Background
     $(".with-background").backstretch("assets/img/bg.jpg");
     $("#service").backstretch("assets/img/bg_service.jpg");
     $("#quote").backstretch("assets/img/bg_service.jpg");

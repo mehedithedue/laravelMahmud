@@ -6,9 +6,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\Category;
-use App\Models\Image;
+use App\Models\ImageModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
+use Log;
 
 class ImageController extends Controller
 {
@@ -16,16 +18,10 @@ class ImageController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function uploadLogo()
     {
-
-        return view('admin.image.index');
-    }
-
-    public function indexJson()
-    {
-
-        return response()->json(['data' => Image::all()]);
+        $image = ImageModel::where(['type' => 'logo', 'category_id' => 0, 'order' => 0])->first();
+        return view('admin.image.logo', compact('image'));
     }
 
     /**
@@ -34,9 +30,60 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('admin.image.create');
+        $image = ImageModel::where(['type' => 'logo', 'category_id' => 0, 'order' => 0])->first();
+        return view('admin.image.logo', compact('image'));
     }
 
+
+    public function storeLogo(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|image|mimes:jpeg,png,jpg|max:1048',
+        ]);
+
+        try {
+
+            $image = $request->file;
+
+            $imagePath = storage_path('app/public/uploads/logo/');
+
+            $imageName = 'sultanarchviz_logo.' . $image->getClientOriginalExtension();
+
+            if (!File::exists($imagePath)) {
+                File::makeDirectory($imagePath, $mode = 0777, true, true);
+            }
+
+            if(File::exists($imagePath.$imageName)) {
+                File::delete($imagePath.$imageName);
+            }
+
+            if(Image::make($image)->save($imagePath . $imageName)){
+
+                $image = ImageModel::firstOrNew(['type' => 'logo', 'category_id' => 0, 'order' => 0]);
+
+                $image->ref_id = null;
+                $image->file_path = '/storage/' . substr($imagePath . $imageName, strpos($imagePath . $imageName, '/uploads/') + 1);
+                $image->thumb_file_path = null;
+
+                if($image->save()){
+
+                    return redirect()->back()->with('success', "Logo successfully uploaded ! .");
+
+                }else{
+                    Log::error('There is a error in image save to database ');
+                    return redirect()->back()->with('error', "Sorry! There is a error. Please try to Upload again.");
+                }
+            }else{
+
+                Log::error('There is a error in ImageModel::make($image) of Logo image ');
+                return redirect()->back()->with('error', "Sorry! There is a error. Please try to Upload again.");
+            }
+
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json($e->getMessage(), 500);
+        }
+    }
 
     public function storeImages($categoryId, $type, Request $request)
     {
@@ -54,9 +101,9 @@ class ImageController extends Controller
 
             $fileUpload = $fileController->uploadImage($image, $imagePath);
 
-            $lastImageOrder = Image::where('category_id', $categoryId)->orderBy('order', 'DESC')->first();
+            $lastImageOrder = ImageModel::orderBy('order', 'DESC')->first();
 
-            $image = new \App\Models\Image();
+            $image = new ImageModel();
 
             $image->type = $type;
             $image->category_id = $categoryId;
@@ -71,6 +118,7 @@ class ImageController extends Controller
             }
 
         } catch (\Exception $e) {
+            Log::error($e->getMessage());
             return response()->json($e->getMessage(), 500);
         }
     }
@@ -85,8 +133,7 @@ class ImageController extends Controller
 
     public function portfolioImageJson($categoryId, $type)
     {
-
-        $portfolioImages = Image::leftJoin('categories', 'images.category_id', '=', 'categories.id')
+        $portfolioImages = ImageModel::leftJoin('categories', 'images.category_id', '=', 'categories.id')
             ->where('category_id', $categoryId)
             ->orderBy('order', 'Desc')
             ->get([
@@ -101,52 +148,24 @@ class ImageController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     */
-    public function store(Request $request)
-    {
-
-        $requestData = $request->all();
-
-        Image::create($requestData);
-
-        return redirect()->route('image.create')->with('success', 'Image added!');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        $image = Image::find($id);
-        return view('admin.image.edit', compact('image'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     */
-    public function update(Request $request, Image $image)
-    {
-
-        $requestData = $request->all();
-
-        $image->update($requestData);
-
-        return redirect()->route('image.edit', $image->id)->with('success', 'Image updated!');
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      */
-    public function destroy($id)
+    public function destroy(ImageModel $image)
     {
-        $image = Image::find($id);
-        $image->delete();
+        try{
+            if(File::exists($image->file_path)) {
+                File::delete($image->file_path);
+            }
+            $image->delete();
 
-        return ' Deleted successfully';
+            return ' Deleted successfully';
+
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json($e->getMessage(), 500);
+        }
+
 
     }
 }

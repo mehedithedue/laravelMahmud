@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | General Form Elements</title>
+    <title>Login | Sultan Mahmud</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
 
@@ -30,7 +30,7 @@
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required
                        autofocus>
                 @if ($errors->has('email'))
-                    <span class="help-block">
+                    <span class="text-danger">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                 @endif
@@ -40,9 +40,9 @@
                 <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
 
                 @if ($errors->has('password'))
-                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                    <span class="text-danger">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
                 @endif
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
+use App\Models\ImageModel;
 use Artisan;
 use Illuminate\Http\Request;
 
@@ -20,7 +20,8 @@ class FrontEndController extends Controller
         $limit = $request->limit;
         $offset = $request->offset;
 
-        $portfolioImages = Image::leftJoin('categories', 'images.category_id', '=', 'categories.id')
+        $portfolioImages = ImageModel::leftJoin('categories', 'images.category_id', '=', 'categories.id')
+            ->whereNotIn('category_id', [0])
             ->orderBy('order', 'Desc')
             ->offset($offset)
             ->limit($limit)
