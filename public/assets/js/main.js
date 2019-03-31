@@ -56,8 +56,8 @@
      -------------------*/
     var containerEl = document.querySelector('.mixitup_container');
     var mixer = mixitup(containerEl);
-    var limit = 16;
-    var offset = 0
+    var limit = 24;
+    var offset = 0;
 
 
     $('#navbar ul.navbar-nav li a').on('click', function () {
@@ -67,7 +67,7 @@
     });
 
 
-    getPortfolioItem(limit, offset, '.mixitup_container #mixitup_container_elements', mixer, containerEl)
+    getPortfolioItem(limit, offset, '.mixitup_container #mixitup_container_elements', mixer, containerEl, 1)
 
     $('.loadmore').on('click', function (event) {
         offset = offset + limit;
@@ -89,9 +89,9 @@
 
 })(jQuery);
 
-function getPortfolioItem(limit, offset, appendToId, mixer,containerEl) {
+function getPortfolioItem(limit, offset, appendToId, mixer,containerEl, firstTimeLoadFlag = 0) {
 
-    $.getJSON(fullPath + 'get-portfolio-item', {limit: limit, offset: offset})
+    $.getJSON(fullPath + 'get-portfolio-item', {limit: limit, offset: offset, flag: firstTimeLoadFlag})
         .done(function (response) {
             $(appendToId).append(response.html);
             mixer.destroy();
